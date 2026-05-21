@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Space Grotesk", sans-serif;
+
+  --color-surface: #f9f9f9;
+  --color-on-surface: #1a1c1c;
+  --color-primary: #000000;
+  --color-outline: #777777;
+  --color-outline-variant: #c6c6c6;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-low: #f3f3f4;
+  --color-surface-container-lowest: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .grid-bg {
+    background-image: radial-gradient(circle, var(--color-outline-variant) 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .wireframe-stroke {
+    stroke: currentColor;
+    stroke-width: 0.5px;
+    fill: none;
+  }
+
+  .hexagon-path {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+
+  .triangle-path {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(1000%); }
+  }
+
+  .animate-scanline {
+    animation: scanline 4s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+  }
+}
